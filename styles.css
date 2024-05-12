@@ -1,0 +1,329 @@
+:root{
+  --primary: #fff;
+  --bg-color: #fffaf0;
+  --bg-envelope-color: #fff9c4; /* Amarillo Suave */
+  --envelope-tab: #fff59d; /* Amarillo Suave para la solapa */
+  --envelope-cover: #fff176; /* Amarillo Suave para el cuerpo */
+  /* --bg-envelope-color: #f5edd1;
+  --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7; */
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --txt-color: #444;
+  --heart-color: #ff7f0e;
+  --lily-color: #ffffff; /* Color de los pétalos del lirio */
+  --stamen-color: #ffeeee; /* Color del estambre del lirio */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+  position: relative;
+  min-height: 100vh;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.container > .envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
+}
+
+.envelope-wrapper {
+  background-image: url('papel.jpg'); /* Ruta de la imagen de la textura de papel arrugado */
+  background-size: cover;
+}
+
+.envelope-wrapper > .envelope {
+  position: relative;
+  width: 300px;
+  height: 230px;
+}
+
+.envelope-wrapper > .envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 130px solid var(--envelope-tab);
+  border-right: 150px solid transparent;
+  border-left: 150px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease-in-out 0.7s;
+}
+
+.envelope-wrapper > .envelope::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 0px;
+  height: 0px;
+  border-top: 130px solid transparent;
+  border-right: 150px solid var(--envelope-cover);
+  border-bottom: 100px solid var(--envelope-cover);
+  border-left: 150px solid var(--envelope-cover);
+}
+
+.envelope > .letter {
+  position: absolute;
+  right: 20%;
+  bottom: 0;
+  width: 54%;
+  height: 80%;
+  background-color: #f7f4e6;/* Ruta de la imagen de papel viejo */ 
+       /* Estilo de la imagen */
+  text-align: center;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 0 5px var(--shadow-color);
+  padding: 20px 10px;
+}
+
+.envelope > .letter > .text {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: var(--txt-color);
+  text-align: left;
+  font-size: 9px; /* Tamaño del texto ajustado */
+  line-height: 0.9; /* Espaciado entre líneas ajustado */
+}
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -20%) rotate(45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
+}
+
+.heart:before, 
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
+}
+
+.heart:before {
+  top: -7.5px;
+}
+
+.heart:after {
+  right: 7.5px;
+}
+
+.flap > .envelope:before {
+  transform: rotateX(180deg);
+  z-index: 0;
+  animation: shine 1s forwards;
+}
+
+@keyframes shine {
+  from {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0);
+  }
+  to {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.flap > .envelope > .letter {
+  bottom: 100px;
+  transform: scale(1.5);
+  transition-delay: 1s;
+}
+
+.flap > .heart {
+  transform: rotate(90deg);
+  transition-delay: 0.4s;
+}
+
+.particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Florecitas CSS */
+
+  .flowers-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Distribuye las flores a los lados */
+  }
+
+  .left-flower,
+  .right-flower {
+      width: 50%;
+  }
+
+  .container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    display: grid;
+    place-items: center;
+  }
+
+  .flower {
+    width: 50px;
+    height: 50px;
+    animation: giro 8s ease-in-out infinite; /* Ajuste de la duración del giro */
+  }
+
+  .leaf {
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 2px 50px;
+    opacity: 0.8;
+    box-shadow: -5px -5px 2px rgba(0, 0, 0, 0.051);
+  }
+
+  .dot {
+    position: absolute;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    background-color: #f1c40f;
+    border-radius: 50%;
+    animation: dot 8s ease-in-out infinite; /* Ajuste de la duración del giro */
+  }
+
+  .leaf-0 {
+    transform: rotate(0deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-1 {
+    transform: rotate(22.5deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-2 {
+    transform: rotate(45deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-3 {
+    transform: rotate(67.5deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-4 {
+    transform: rotate(90deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-5 {
+    transform: rotate(112.5deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-6 {
+    transform: rotate(135deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-7 {
+    transform: rotate(157.5deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-8 {
+    transform: rotate(180deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-9 {
+    transform: rotate(202.5deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-10 {
+    transform: rotate(225deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-11 {
+    transform: rotate(247.5deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-12 {
+    transform: rotate(270deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-13 {
+    transform: rotate(292.5deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-14 {
+    transform: rotate(315deg) translate(-35px, -35px) scale(2);
+  }
+
+  .leaf-15 {
+    transform: rotate(337.5deg) translate(-35px, -35px) scale(2);
+  }
+
+  @keyframes giro {
+    0% {
+      transform: scale(0) translate(-35px, -35px);
+    }
+    15% {
+      transform: scale(1) rotate(50deg); /* Reducción de la velocidad de giro */
+    }
+    45% {
+      transform: scale(1) rotate(100deg); /* Reducción de la velocidad de giro */
+    }
+    55% {
+      transform: scale(1) rotate(180deg); /* Reducción de la velocidad de giro */
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+
+  @keyframes dot {
+    0%, 12% {
+        transform: scale(0);
+    }
+    20% {
+        transform: scale(1.1);
+    }
+    25% {
+        transform: scale(0.95);
+    }
+    30%, 55% {
+        transform: scale(1);
+    }
+    58% {
+        transform: scale(1.1);
+    }
+    70%, 100% {
+        transform: scale(0);
+    }
+  }
+
+  .left-flower {
+    grid-column: 1; 
+    justify-self: end; 
+    margin-right: 40px; 
+  }
+
+  .right-flower {
+    grid-column: 4; 
+    justify-self: start;
+    margin-left: 40px; 
+  }
+

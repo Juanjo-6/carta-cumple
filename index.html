@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartaaaaa</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+
+    <div id="particles-js" class="particles"></div>
+    <div class="container">
+        <div class="flowers-container">
+            <div class="flower left-flower">
+                <!-- Contenido de la flor izquierda -->
+                <div class="leaf leaf-0"></div>
+                <div class="leaf leaf-1"></div>
+                <div class="leaf leaf-2"></div>
+                <div class="leaf leaf-3"></div>
+                <div class="leaf leaf-4"></div>
+                <div class="leaf leaf-5"></div>
+                <div class="leaf leaf-6"></div>
+                <div class="leaf leaf-7"></div>
+                <div class="leaf leaf-8"></div>
+                <div class="leaf leaf-9"></div>
+                <div class="leaf leaf-10"></div>
+                <div class="leaf leaf-11"></div>
+                <div class="leaf leaf-12"></div>
+                <div class="leaf leaf-13"></div>
+                <div class="leaf leaf-14"></div>
+                <div class="leaf leaf-15"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="flower right-flower">
+                <!-- Contenido de la flor derecha -->
+                <div class="leaf leaf-0"></div>
+                <div class="leaf leaf-1"></div>
+                <div class="leaf leaf-2"></div>
+                <div class="leaf leaf-3"></div>
+                <div class="leaf leaf-4"></div>
+                <div class="leaf leaf-5"></div>
+                <div class="leaf leaf-6"></div>
+                <div class="leaf leaf-7"></div>
+                <div class="leaf leaf-8"></div>
+                <div class="leaf leaf-9"></div>
+                <div class="leaf leaf-10"></div>
+                <div class="leaf leaf-11"></div>
+                <div class="leaf leaf-12"></div>
+                <div class="leaf leaf-13"></div>
+                <div class="leaf leaf-14"></div>
+                <div class="leaf leaf-15"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Barrientosss</strong>
+                        <p>
+                            Bueno ahora sii, Feliz cumpleañoss bonitaaa, espero te la pases bien en tu dia, cada ves mas viejita pero toca crecerle.
+                            Te lo hice con mucho cariño y espero de verdad que te gustee.
+                            Te quiero mucho bonita talves no sea la mejor forma de decirtelo pero llevaba mucho tiempo que lo habia pensado asi que 
+                            quise hacerte esto, te quiero muchooo.
+                            (solo una cosa, casi quedo pelon por las flores eh, tuve que recurrir a un videito😔)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+        </div>
+    </div>
+    
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+        });
+    </script>
+    <script src="particles.js"></script>
+</body>
+</html>
